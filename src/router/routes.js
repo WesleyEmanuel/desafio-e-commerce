@@ -1,9 +1,9 @@
-import HomeStore from '../views/HomeStore.vue'
+import Ofertas from '../views/Ofertas.vue';
 
 export default [
   {
     path: '/',
-    name: 'home',
-    component: HomeStore
+    name: 'ofertas',
+    component: Ofertas
   }
-]
+];

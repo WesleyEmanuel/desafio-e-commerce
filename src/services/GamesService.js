@@ -1,7 +1,7 @@
 import { HTTPClient } from '../utils/requests';
 
 export default {
-  getPagedStoreGames() {
+  async getPagedGamesOffers() {
     return HTTPClient.get('deals').then(({ status, data }) => {
       if (status == 200) {
         return data;
