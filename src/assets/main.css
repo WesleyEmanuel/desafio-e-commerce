@@ -11,3 +11,11 @@ a {
     opacity: 0.8;
   }
 }
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 8px;
+}
+
+.border {
+  border: 1px solid white;
+}

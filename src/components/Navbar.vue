@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="nav-bar">
+  <div class="nav-bar shadow">
     <img src="../assets/images/game-tracker-logo.png" alt="game tracker logo" class="logo" />
     <p>
       Game
@@ -22,7 +22,6 @@
   justify-content: center;
   font-size: 24px;
   gap: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 10px;
 }
 .bold {
   font-weight: 700;
