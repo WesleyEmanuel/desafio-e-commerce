@@ -15,6 +15,8 @@
   background-color: var(--dark-blue-bg);
   height: 50px;
   width: 100%;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
