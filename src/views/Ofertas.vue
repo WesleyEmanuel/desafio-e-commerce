@@ -50,7 +50,6 @@ onMounted(getGameOffers);
 <style scoped>
 .ofertas {
   width: 100%;
-  padding: 1rem;
   background: var(--gradient-home-bg);
   min-height: 100vh;
   display: flex;
