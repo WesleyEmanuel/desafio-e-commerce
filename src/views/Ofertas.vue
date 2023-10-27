@@ -7,8 +7,10 @@ import GameCard from '../components/GameCard.vue';
 const seachIcon = ref(searchIcon);
 
 const games = ref('');
-const getGameOffers = async (gameSearched = '', orderBy, getAll = false) =>
-  (games.value = await GamesService.getPagedGamesOffers(gameSearched, orderBy, getAll));
+const getGameOffers = async (gameSearched = '', orderBy, getAll = false) => {
+  games.value = await GamesService.getPagedGamesOffers(gameSearched, orderBy, getAll);
+  scrollTo(0, 0);
+};
 
 const gameSearched = ref('');
 
@@ -175,7 +177,7 @@ svg {
   margin: 5rem 0;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 800px) {
   .ofertas {
     align-items: start;
     padding: 2rem 5rem;
