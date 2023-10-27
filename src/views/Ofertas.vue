@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import GamesService from '../services/GamesService';
 import { searchIcon } from '../utils/constants';
+import GameCard from '../components/GameCard.vue';
 
 const seachIcon = ref(searchIcon);
 
@@ -40,7 +41,7 @@ onMounted(getGameOffers);
     </div>
     <div class="games">
       <div v-for="game in games" :key="game.gameID" class="game-card">
-        <img :src="game.thumb" :alt="game.title" />
+        <GameCard :game="game" />
       </div>
     </div>
   </div>
@@ -103,6 +104,9 @@ svg {
   padding: 0 1rem;
   width: 50%;
   font-size: 15px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .games {
@@ -110,18 +114,15 @@ svg {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  padding: 3rem 0;
+  justify-items: center;
 }
 
 .game-card {
   width: 100%;
-  height: 200px;
 }
 
-.game-card img {
-  width: 100%;
-}
-
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
   .ofertas {
     align-items: start;
     padding: 2rem 5rem;
@@ -136,6 +137,11 @@ svg {
   .order-by-list {
     width: 20%;
   }
+  .games {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1550px) {
   .games {
     grid-template-columns: 1fr 1fr 1fr;
   }
