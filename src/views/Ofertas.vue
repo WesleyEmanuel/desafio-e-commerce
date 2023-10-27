@@ -209,7 +209,7 @@ svg {
     margin: auto;
   }
 }
-@media (min-width: 1550px) {
+@media (min-width: 1400px) {
   .games {
     grid-template-columns: 1fr 1fr 1fr;
   }
