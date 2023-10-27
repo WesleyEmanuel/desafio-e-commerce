@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 
 const props = defineProps({
   game: {}
@@ -8,16 +8,14 @@ const gameDetails = props.game;
 const gameImageUrl = `https://cdn.akamai.steamstatic.com/steam/apps/${gameDetails.steamAppID}/header.jpg`;
 
 const discount = computed(() => {
-  const percent =
-    (gameDetails.normalPrice - gameDetails.salePrice) / (gameDetails.normalPrice / 100);
-  return percent >= 100 ? 'GRÁTIS' : '-' + Math.round(percent) + '%';
+  return gameDetails.discount >= 100 ? 'GRÁTIS' : '-' + Math.round(gameDetails.discount) + '%';
 });
-
-onMounted(() => console.log(gameImageUrl));
 </script>
 <template>
   <div class="game-card">
-    <img :src="gameImageUrl" :alt="gameDetails.title" />
+    <div class="default-image">
+      <img :src="gameImageUrl" :alt="gameDetails.title" />
+    </div>
     <div class="card-details">
       <div class="title">
         {{ gameDetails.title }}
@@ -39,8 +37,14 @@ onMounted(() => console.log(gameImageUrl));
 .game-card {
   background-color: var(--dark-blue-bg);
   border-radius: 8px;
+  height: 100%;
+}
+.default-image {
+  min-height: 180px;
+  display: flex;
 }
 .game-card img {
+  height: 180px;
   width: 100%;
   border-radius: 8px 8px 0px 0px;
 }
@@ -96,6 +100,15 @@ onMounted(() => console.log(gameImageUrl));
   align-items: center;
   font-size: 16px;
   font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  .default-image {
+    min-height: 250px;
+  }
+  .game-card img {
+    height: 250px;
+  }
 }
 
 @media (min-width: 1100px) {

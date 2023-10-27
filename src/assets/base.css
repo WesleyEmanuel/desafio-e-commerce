@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 
 :root {
-  --gradient-home-bg: linear-gradient(45deg, #0b1641, #c70160);
   --green-bg: rgba(22, 133, 123, 1);
   --dark-blue-bg: rgba(11, 22, 65, 1);
   --pink-bg: rgba(199, 1, 96, 1);
