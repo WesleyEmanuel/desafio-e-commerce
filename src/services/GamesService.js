@@ -40,8 +40,9 @@ export default {
         });
 
         if (orderBy === 1) {
-          gameWithDiscount = gameWithDiscount.sort((game1, game2) =>
-            game1.discount < game2.discount ? 1 : 0
+          console.log(gameWithDiscount);
+          gameWithDiscount = gameWithDiscount.sort(
+            (game1, game2) => game2.discount - game1.discount
           );
         }
 
