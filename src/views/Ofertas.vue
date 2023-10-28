@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue';
 import GamesService from '../services/GamesService';
-import { searchIcon } from '../utils/constants';
+import { searchIcon, arrowDownIcon } from '../utils/constants';
 import GameCard from '../components/GameCard.vue';
 
 const seachIcon = ref(searchIcon);
@@ -51,11 +51,17 @@ onMounted(() => getGameOffers(gameSearched.value, orderBySelected.value));
       </div>
       <div class="order-by">
         <p>Ordenar por:</p>
-        <select name="select" class="order-by-list shadow border" v-model="orderBySelected">
-          <option :value="orderBy.id" v-for="orderBy in orderByList" :key="orderBy.id">
-            {{ orderBy.description }}
-          </option>
-        </select>
+        <div class="order-by-list shadow">
+          <select name="select" v-model="orderBySelected">
+            <option :value="orderBy.id" v-for="orderBy in orderByList" :key="orderBy.id">
+              {{ orderBy.description }}
+            </option>
+          </select>
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+            <!--! Font Awesome Free 6.4.2 by fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path :d="arrowDownIcon" />
+          </svg>
+        </div>
       </div>
     </div>
     <div v-if="games.length" class="games">
@@ -88,10 +94,6 @@ onMounted(() => getGameOffers(gameSearched.value, orderBySelected.value));
   font-size: 1.5rem;
 }
 
-svg {
-  fill: var(--white-text);
-  font-size: 16px;
-}
 .menu {
   display: flex;
   justify-content: space-between;
@@ -99,7 +101,6 @@ svg {
   gap: 1rem;
   width: 100%;
 }
-
 .menu .search {
   width: 50%;
   background-color: var(--dark-blue-bg);
@@ -108,6 +109,10 @@ svg {
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
+}
+.menu .search svg {
+  fill: var(--white-text);
+  font-size: 16px;
 }
 
 .search input {
@@ -134,17 +139,31 @@ svg {
 .order-by-list {
   width: 100%;
   background-color: var(--dark-blue-bg);
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-by-list select {
+  width: 100%;
+  height: 50px;
+  background-color: var(--dark-blue-bg);
   border: none;
   outline: none;
   color: var(--white-text);
-  height: 50px;
-  border-radius: 8px;
   padding: 0 1rem;
-
+  border-radius: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   font-size: 15px;
-  border-right: 14px solid var(--dark-blue-bg);
 }
-
+.order-by svg {
+  fill: var(--white-text);
+  font-size: 16px;
+  transform: translateX(-1rem);
+}
 .games {
   width: 100%;
   display: grid;
@@ -177,7 +196,7 @@ svg {
   margin: 5rem 0;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .ofertas {
     align-items: start;
     padding: 2rem 5rem;
@@ -209,7 +228,7 @@ svg {
     margin: auto;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
   .games {
     grid-template-columns: 1fr 1fr 1fr;
   }

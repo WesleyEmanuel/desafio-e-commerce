@@ -112,6 +112,12 @@ const discount = computed(() => {
 }
 
 @media (min-width: 1100px) {
+  .default-image {
+    min-height: 200px;
+  }
+  .game-card img {
+    height: 200px;
+  }
   .details-btn {
     font-size: 20px;
   }
@@ -123,6 +129,14 @@ const discount = computed(() => {
   }
   .discount {
     font-size: 20px;
+  }
+}
+@media (min-width: 1400px) {
+  .default-image {
+    min-height: 250px;
+  }
+  .game-card img {
+    height: 250px;
   }
 }
 </style>
