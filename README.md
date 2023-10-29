@@ -3,7 +3,9 @@
 ## Project screenshots
 
 <div>
-  <img style="width: 250px" src="./src/assets/images/game-tracker-screenshot.png" alt="home"/>
+  <img style="width: 250px" src="./src/assets/images/game-tracker-mobile-screenshot.png" alt="home"/>
+  <img style="width: 250px" src="./src/assets/images/game-tracker-mobile-screenshot-2.png" alt="home"/>
+  <img style="width: 750px" src="./src/assets/images/game-tracker-screenshot.png" alt="home"/>
 <div>
 ## Recommended IDE Setup
 
