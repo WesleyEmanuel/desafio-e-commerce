@@ -31,8 +31,10 @@ export default {
     }
 
     return HTTPClient.get(url).then(({ status, data }) => {
+      let gameWithDiscount = [];
+
       if (status == 200) {
-        let gameWithDiscount = data.map((game) => {
+        gameWithDiscount = data.map((game) => {
           return {
             ...game,
             discount: (game.normalPrice - game.salePrice) / (game.normalPrice / 100)
@@ -45,9 +47,9 @@ export default {
             (game1, game2) => game2.discount - game1.discount
           );
         }
-
-        return gameWithDiscount;
       }
+
+      return gameWithDiscount;
     });
   }
 };

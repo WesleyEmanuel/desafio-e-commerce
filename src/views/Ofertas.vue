@@ -7,7 +7,7 @@ import GameCard from '../components/GameCard.vue';
 const seachIcon = ref(searchIcon);
 
 const games = ref('');
-const getGameOffers = async (gameSearched = '', orderBy, getAll = false) => {
+const getGameOffers = async (orderBy, getAll = false, gameSearched = '') => {
   games.value = await GamesService.getPagedGamesOffers(gameSearched, orderBy, getAll);
   scrollTo(0, 0);
 };
@@ -15,7 +15,7 @@ const getGameOffers = async (gameSearched = '', orderBy, getAll = false) => {
 const gameSearched = ref('');
 
 watch(gameSearched, (value, oldvalue) => {
-  getGameOffers(value, orderBySelected.value);
+  getGameOffers(orderBySelected.value, false, value);
 });
 
 const orderByList = ref([
@@ -28,14 +28,14 @@ const orderByList = ref([
 const orderBySelected = ref(1);
 
 watch(orderBySelected, (value, oldvalue) => {
-  getGameOffers(gameSearched.value, value);
+  getGameOffers(value, false, gameSearched.value);
 });
 
 const getAllGames = () => {
-  getGameOffers(gameSearched.value, orderBySelected.value, true);
+  getGameOffers(orderBySelected.value, true, gameSearched.value);
 };
 
-onMounted(() => getGameOffers(gameSearched.value, orderBySelected.value));
+onMounted(() => getGameOffers(orderBySelected.value, false, gameSearched.value));
 </script>
 
 <template>
