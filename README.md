@@ -4,8 +4,7 @@
 
 <div>
   <img style="width: 250px" src="./src/assets/images/game-tracker-mobile-screenshot.png" alt="game tracker mobile screenshot"/>
-  <img style="width: 250px" src="./src/assets/images/game-tracker-mobile-screenshot-2.png" alt="game tracker mobile screenshot 2"/>
-  <img style="width: 750px" src="./src/assets/images/game-tracker-screenshot.png" alt="game tracker screenshot"/>
+  <img style="width: 750px" src="./src/assets/images/game-tracker-screenshot.gif" alt="game tracker screenshot"/>
 <div>
 ## Recommended IDE Setup
 
